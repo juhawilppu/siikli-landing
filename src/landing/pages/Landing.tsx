@@ -1,4 +1,4 @@
-import { ArrowRight, BarChart3, Box, Check, ChevronRight, FileText, Package, Truck, Users } from 'lucide-react'
+import { ArrowRight, BarChart3, Box, Check, FileText, Package, Truck, Users } from 'lucide-react'
 
 import { useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
@@ -104,27 +104,6 @@ export default function LandingPage() {
                 <a href="#ominaisuudet">{t('landing.learnMore')}</a>
               </Button>
             </div>
-            {false && (
-              <div className="flex items-center gap-2 mt-4">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map(i => (
-                    <div
-                      key={i}
-                      className="h-10 w-10 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-base font-medium"
-                    >
-                      {String.fromCharCode(64 + i)}
-                    </div>
-                  ))}
-                </div>
-                <p className="text-base text-muted-foreground">
-                  Yli
-                  {' '}
-                  <span className="font-medium">500+</span>
-                  {' '}
-                  yritystä käyttää Siikliä
-                </p>
-              </div>
-            )}
           </div>
           <div className="w-full md:w-1/2 flex items-center justify-center">
             <div className="relative w-full max-w-[480px] rounded-lg shadow-2xl border border-gray-200 bg-white overflow-hidden">
@@ -173,17 +152,6 @@ export default function LandingPage() {
                   )}
                 </ul>
               </CardContent>
-              {false && (
-                <CardFooter>
-                  <Button variant="ghost" size="sm" className="gap-1 text-lg" asChild>
-                    <a href="#tilaukset">
-                      Lue lisää
-                      {' '}
-                      <ChevronRight className="h-5 w-5" />
-                    </a>
-                  </Button>
-                </CardFooter>
-              )}
             </Card>
             <Card ref={customersRef} className="rounded-xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white">
               <CardHeader className="pb-2">
@@ -205,17 +173,6 @@ export default function LandingPage() {
                   ))}
                 </ul>
               </CardContent>
-              {false && (
-                <CardFooter>
-                  <Button variant="ghost" size="sm" className="gap-1 text-lg" asChild>
-                    <a href="#asiakkaat">
-                      Lue lisää
-                      {' '}
-                      <ChevronRight className="h-5 w-5" />
-                    </a>
-                  </Button>
-                </CardFooter>
-              )}
             </Card>
             <Card ref={productsRef} className="rounded-xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white">
               <CardHeader className="pb-2">
@@ -237,17 +194,6 @@ export default function LandingPage() {
                   ))}
                 </ul>
               </CardContent>
-              {false && (
-                <CardFooter>
-                  <Button variant="ghost" size="sm" className="gap-1 text-lg" asChild>
-                    <a href="#tuotteet">
-                      Lue lisää
-                      {' '}
-                      <ChevronRight className="h-5 w-5" />
-                    </a>
-                  </Button>
-                </CardFooter>
-              )}
             </Card>
             <Card ref={invoicesRef} className="rounded-xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white">
               <CardHeader className="pb-2">
@@ -269,17 +215,6 @@ export default function LandingPage() {
                   ))}
                 </ul>
               </CardContent>
-              {false && (
-                <CardFooter>
-                  <Button variant="ghost" size="sm" className="gap-1 text-lg" asChild>
-                    <a href="#laskutus">
-                      Lue lisää
-                      {' '}
-                      <ChevronRight className="h-5 w-5" />
-                    </a>
-                  </Button>
-                </CardFooter>
-              )}
             </Card>
             <Card ref={shippingRef} className="rounded-xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white">
               <CardHeader className="pb-2">
@@ -303,17 +238,6 @@ export default function LandingPage() {
                   )}
                 </ul>
               </CardContent>
-              {false && (
-                <CardFooter>
-                  <Button variant="ghost" size="sm" className="gap-1 text-lg" asChild>
-                    <a href="#kuljetukset">
-                      Lue lisää
-                      {' '}
-                      <ChevronRight className="h-5 w-5" />
-                    </a>
-                  </Button>
-                </CardFooter>
-              )}
             </Card>
             <Card ref={reportsRef} className="rounded-xl border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white">
               <CardHeader className="pb-2">
@@ -335,17 +259,6 @@ export default function LandingPage() {
                   ))}
                 </ul>
               </CardContent>
-              {false && (
-                <CardFooter>
-                  <Button variant="ghost" size="sm" className="gap-1 text-lg" asChild>
-                    <a href="#raportit">
-                      Lue lisää
-                      {' '}
-                      <ChevronRight className="h-5 w-5" />
-                    </a>
-                  </Button>
-                </CardFooter>
-              )}
             </Card>
           </div>
         </div>
@@ -452,7 +365,7 @@ export default function LandingPage() {
                   'landing.customerFeedback.1.company',
                 ),
                 quote:
-                    t('landing.customerFeedback.1.quote'),
+                  t('landing.customerFeedback.1.quote'),
               },
             ].map((testimonial, i) => (
               <Card key={i} className="bg-gray-50 border-none">

@@ -12,18 +12,6 @@ export default function Footer() {
               <span className="font-bold text-2xl text-white">Siikli</span>
             </div>
             <p className="text-gray-400">{t('landing.footer.description')}</p>
-            {false && (
-              <div className="flex gap-4 mt-2">
-                {['twitter', 'facebook', 'instagram', 'NavLinkedin'].map(social => (
-                  <NavLink key={social} to={`#${social}`} className="text-gray-400 hover:text-white">
-                    <span className="sr-only">{social}</span>
-                    <div className="h-6 w-6 rounded-full bg-gray-800 flex items-center justify-center">
-                      {social.charAt(0).toUpperCase()}
-                    </div>
-                  </NavLink>
-                ))}
-              </div>
-            )}
           </div>
           <div className="flex flex-col gap-4">
             <h3 className="text-lg font-medium text-white">{t('landing.footer.features')}</h3>
