@@ -16,9 +16,6 @@ function Landing() {
     initPosthog()
   }
 
-  const handleCookieConsentDecline = () => {
-  }
-
   return (
     <>
       <Routes>
@@ -32,7 +29,7 @@ function Landing() {
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      <SiikliCookieConsent onAccept={handleCookieConsentAccept} onDecline={handleCookieConsentDecline} />
+      <SiikliCookieConsent onAccept={handleCookieConsentAccept} />
     </>
   )
 }

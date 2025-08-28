@@ -1,7 +1,7 @@
 import CookieConsent from 'react-cookie-consent'
 import { NavLink } from 'react-router-dom'
 
-export default function SiikliCookieConsent({ onAccept, onDecline }: { onAccept: () => void, onDecline: () => void }) {
+export default function SiikliCookieConsent({ onAccept }: { onAccept: () => void }) {
   return (
     <CookieConsent
       location="bottom"
@@ -13,7 +13,6 @@ export default function SiikliCookieConsent({ onAccept, onDecline }: { onAccept:
         localStorage.setItem('cookie-consent', 'accepted')
       }}
       onDecline={() => {
-        onDecline()
         localStorage.setItem('cookie-consent', 'declined')
       }}
       style={{
