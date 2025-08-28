@@ -177,6 +177,10 @@ export const translations = {
     'landing.customerFeedback.1.name': 'Juhana Männistö',
     'landing.customerFeedback.1.company': 'Aromäen tila',
     'landing.customerFeedback.1.quote': 'Siikli on merkittävästi helpottanut tilaustemme hallintaa ja laskutusta. Siikli on yksinkertainen ja luotettava sovellus, joka sopii juuri meidän tarpeisiimme.',
+    'landing.cookieConsent.acceptAll': 'Hyväksy kaikki',
+    'landing.cookieConsent.acceptOnlyEssential': 'Vain välttämättömät',
+    'landing.cookieConsent.description': 'Käytämme evästeitä sivuston toiminnan ja kehittämisen tueksi. Voit valita, mitä hyväksyt.',
+    'landing.cookieConsent.link': 'Lue lisää evästeistä',
   },
   en: {
     'landing.title': 'Invoices with one click',
@@ -355,6 +359,10 @@ export const translations = {
     'landing.customerFeedback.1.name': 'Juhana Männistö',
     'landing.customerFeedback.1.company': 'Aromäen tila',
     'landing.customerFeedback.1.quote': 'Siikli has significantly simplified our order management and invoicing!',
+    'landing.cookieConsent.acceptAll': 'Accept all',
+    'landing.cookieConsent.acceptOnlyEssential': 'Accept only essential',
+    'landing.cookieConsent.description': 'We use cookies to support the site\'s functionality and development. You can choose what you accept.',
+    'landing.cookieConsent.link': 'Read more about cookies',
   },
 }
 
