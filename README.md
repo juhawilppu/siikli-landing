@@ -6,15 +6,11 @@ This repository contains the **marketing website for Siikli**, a modern ERP for 
 
 ![Siikli landing screenshot](docs/screenshot.png)
 
----
-
 ## 🚀 Tech stack
 
 - [React](https://react.dev/) + [Vite](https://vitejs.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
 - Deployed to **AWS S3 + CloudFront**
-
----
 
 ## 🛠️ Development
 
