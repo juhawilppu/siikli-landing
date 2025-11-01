@@ -1,5 +1,6 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { useEffect } from 'react'
 
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { initPosthog } from '@/lib/posthog'
 import SiikliCookieConsent from '../components/SiikliCookieConsent'
 import ErrorPage from './components/ErrorPage'
@@ -10,10 +11,8 @@ import LandingPage from './pages/Landing'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Support from './pages/Support'
 import TermsOfService from './pages/TermsOfService'
-import { useEffect } from 'react'
 
 function Landing() {
-
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent')
     if (consent === 'accepted') {
