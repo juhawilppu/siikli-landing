@@ -2,9 +2,9 @@ import { useApp } from '../context/AppContext'
 
 export const translations = {
   fi: {
-    'landing.title': 'Laskut yhdellä napilla',
-    'landing.description': 'Kirjaa tilaukset ylös ja tee lasku sekunneissa. Siikli pitää huolen asiakastiedoista ja arkistoinnista.',
-    'landing.description2': '🎉 Kokeile 1 kk ilmaiseksi ja vaikuta siihen, miten Siiklistä tulee täydellinen työkalu.',
+    'landing.title': 'Helppo laskutusohjelma pienille yrityksille',
+    'landing.description': 'Siikli on tehty yhdessä suomalaisten pientilojen kanssa. Siksi siinä on kaikki olennainen — eikä mitään turhaa.',
+    'landing.description2': 'Kokeile kuukauden ilmaiseksi ja kerro, mitä ominaisuuksia juuri sinä kaipaat.',
     'landing.startForFree': 'Aloita ilmaiseksi',
     'landing.learnMore': 'Tutustu ominaisuuksiin',
     'landing.topbar.back': 'Takaisin etusivulle',
@@ -54,7 +54,7 @@ export const translations = {
     'landing.pricing.free.feature2': 'Laskutus',
     'landing.pricing.free.feature3': '1 käyttäjä',
     'landing.pricing.free.feature4': '20 tilausta per kk',
-    'landing.pricing.free.cta': '👉 Aloita heti ilman maksua',
+    'landing.pricing.free.cta': '👉 Aloita heti ilman luottokorttia',
     'landing.pricing.free.ctaButton': 'Aloita ilmaiseksi',
     'landing.pricing.premium.title': 'Premium',
     'landing.pricing.premium.description': 'Kasvaville yrityksille, jotka haluavat mukaan laskutuksen ja tuen',
@@ -183,9 +183,9 @@ export const translations = {
     'landing.cookieConsent.link': 'Lue lisää evästeistä',
   },
   en: {
-    'landing.title': 'Invoices with one click',
-    'landing.description': 'Record orders and create an invoice in seconds. Siikli takes care of customer information and archiving.',
-    'landing.description2': '🎉 Try one month for free and help shape Siikli into the perfect tool.',
+    'landing.title': 'Simple invoicing for small businesses',
+    'landing.description': 'Siikli was built together with small Finnish farms. That\'s why it includes everything essential — and nothing unnecessary.',
+    'landing.description2': 'Try it free for one month and tell us what features you\'d like to see.',
     'landing.startForFree': 'Start for free',
     'landing.learnMore': 'Learn more',
     'landing.topbar.back': 'Back to home',
