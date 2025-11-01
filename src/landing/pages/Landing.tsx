@@ -1,7 +1,6 @@
 import { ArrowRight, BarChart3, Box, Check, FileText, Package, Truck, Users } from 'lucide-react'
 
 import { useEffect, useRef } from 'react'
-import { NavLink } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Star } from '@/custom-icons'
@@ -398,36 +397,45 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="w-full py-12 md:py-24 bg-primary text-primary-foreground">
+      {/* About the creator */}
+      <section className="w-full py-12 md:py-24 bg-gray-50">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center text-center gap-4 md:gap-8">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.1]">{t('landing.cta.title')}</h2>
-            <p className="text-lg md:text-2xl text-primary-foreground/90 max-w-[800px]">
-              {t('landing.cta.description')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-4">
-              <a href="https://app.siikli.fi">
-                <Button size="lg" variant="secondary" className="text-lg">
-                  {t('landing.cta.startForFree')}
-                  {' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="md:w-1/2">
+              <div className="w-[70%] mx-auto">
+                <img
+                  src="/juha_personal1.jpg"
+                  alt="Juha Wilppu"
+                  className="w-full aspect-square object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300"
+                />
+              </div>
+            </div>
+            <div className="md:w-1/2 flex flex-col gap-6">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
+                {t('landing.aboutTheCreator.title')}
+              </h2>
+              <div className="space-y-4 text-lg text-muted-foreground">
+                <p>
+                  {t('landing.aboutTheCreator.description1')}
+                </p>
+                <p>
+                  {t('landing.aboutTheCreator.description2')}
+                </p>
+              </div>
+              <div className="flex gap-4 mt-4">
+                <Button size="lg" className="rounded-full" asChild>
+                  <a href="mailto:juha.wilppu@siikli.fi">
+                    Ota yhteyttä
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </a>
                 </Button>
-              </a>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-transparent border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 text-lg"
-                asChild
-              >
-                <NavLink to="/yhteystiedot">{t('landing.cta.askForMore')}</NavLink>
-              </Button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Turvallisuus */}
+      {/* Security */}
       <section className="w-full py-12 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col md:flex-row items-center gap-8">
