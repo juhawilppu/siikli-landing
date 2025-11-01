@@ -10,8 +10,17 @@ import LandingPage from './pages/Landing'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Support from './pages/Support'
 import TermsOfService from './pages/TermsOfService'
+import { useEffect } from 'react'
 
 function Landing() {
+
+  useEffect(() => {
+    const consent = localStorage.getItem('cookie-consent')
+    if (consent === 'accepted') {
+      initPosthog()
+    }
+  }, [])
+
   const handleCookieConsentAccept = () => {
     initPosthog()
   }
