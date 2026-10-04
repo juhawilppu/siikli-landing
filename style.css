@@ -1,0 +1,245 @@
+/* The look of the Siikli app itself: Angular Material 1.1's indigo theme, the
+   grey of the tab bar, uppercase buttons, and Roboto. Indigo is kept for the
+   toolbar and for what can be clicked, so the screenshots stand out. */
+
+:root {
+  --primary: #3f51b5;        /* the app's toolbar and links */
+  --hero-tint: #eef0f9;      /* a faint indigo at the top of the page */
+  --nav: #dadfe1;            /* the app's tab bar */
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --window-bar: #eceef1;
+  --text: rgba(0, 0, 0, 0.87);
+  --muted: rgba(0, 0, 0, 0.6);
+  --line: rgba(0, 0, 0, 0.08);
+  --on-primary: #ffffff;
+  --on-primary-muted: rgba(255, 255, 255, 0.8);
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-raised: 0 2px 6px rgba(0, 0, 0, 0.1), 0 12px 28px rgba(0, 0, 0, 0.1);
+  --shadow-toolbar: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--primary); }
+
+/* Top bar: the app's indigo toolbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 16px;
+  background: var(--primary);
+  box-shadow: var(--shadow-toolbar);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--on-primary);
+  text-decoration: none;
+  font-size: 20px;
+}
+.topbar nav { display: flex; gap: 4px; margin-left: auto; }
+.topbar nav a,
+.login {
+  color: var(--on-primary-muted);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.topbar nav a { text-transform: uppercase; }
+.topbar nav a:hover,
+.topbar nav a:focus-visible,
+.login:hover,
+.login:focus-visible { color: var(--on-primary); background: rgba(255, 255, 255, 0.12); outline: none; }
+/* A quiet link for the app's users */
+.login { margin-left: 12px; font-size: 13px; }
+
+/* Hero: a short line on what Siikli is, then the details and the one number
+   in plain text */
+.hero {
+  padding: 72px 16px 56px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--hero-tint) 0%, var(--bg) 100%);
+}
+.hero h1 {
+  margin: 0 0 16px;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+.lead {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.45;
+}
+.intro { max-width: 600px; margin: 20px auto 0; color: var(--muted); font-size: 17px; }
+.intro strong { color: var(--text); font-weight: 500; }
+
+/* Centred text wraps into lines of even length */
+.lead, .intro, .why p, .quote blockquote, .quote figcaption { text-wrap: balance; }
+
+/* Sections */
+main { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+section { padding-top: 88px; }
+
+h2 {
+  margin: 0 0 40px;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+}
+h2:has(+ .note) { margin-bottom: 8px; }
+.note { margin: 0 0 32px; color: var(--muted); text-align: center; }
+
+/* Why Siikli: a few lines and the customer's own words */
+.why { max-width: 720px; margin: 0 auto; text-align: center; }
+.why p { margin: 0 0 12px; }
+.quote { margin: 36px 0 0; }
+.quote blockquote { margin: 0; font-size: 26px; font-weight: 300; line-height: 1.4; }
+.quote figcaption { margin-top: 12px; color: var(--muted); }
+
+/* Screenshots in browser windows */
+.shot { margin: 0; }
+.window {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  transition: box-shadow 0.2s;
+}
+.window:hover,
+.window:focus-visible { box-shadow: var(--shadow-raised); outline: none; }
+.window-bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px;
+  background: var(--window-bar);
+  border-bottom: 1px solid var(--line);
+}
+.dots { display: flex; gap: 6px; }
+.dots i { width: 9px; height: 9px; border-radius: 50%; background: rgba(0, 0, 0, 0.14); }
+.url {
+  padding: 0 40px;
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 18px;
+}
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;
+}
+.shot figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); }
+.shot figcaption b { color: var(--text); font-weight: 500; }
+.shot figcaption h3 { margin: 0 0 4px; color: var(--text); font-size: 18px; font-weight: 500; }
+.shot figcaption p { margin: 0; font-size: 15px; }
+
+.hero-shot { max-width: 1000px; margin: 0 auto; }
+.hero-shot .window { box-shadow: var(--shadow-raised); }
+.hero-shot img { aspect-ratio: 16 / 10; }
+.hero-shot figcaption { text-align: center; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 28px;
+}
+
+/* Features without a screen, in the same grid as the screenshots */
+.card {
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.card h3 { margin: 0 0 4px; font-size: 18px; font-weight: 500; }
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+footer {
+  margin-top: 96px;
+  padding: 28px 16px 36px;
+  background: var(--nav);
+  color: var(--muted);
+  text-align: center;
+  font-size: 14px;
+}
+footer p { margin: 4px 0; }
+
+/* Full-size screenshot */
+.lightbox {
+  border: none;
+  padding: 0;
+  max-width: min(1280px, 96vw);
+  max-height: 94vh;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-raised);
+  overflow: auto;
+}
+.lightbox::backdrop { background: rgba(0, 0, 0, 0.6); }
+.lightbox img { display: block; width: 100%; height: auto; }
+.lightbox form { position: sticky; top: 0; height: 0; text-align: right; }
+.lightbox .close {
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 24px;
+  line-height: 40px;
+  cursor: pointer;
+  box-shadow: var(--shadow-raised);
+}
+
+@media (max-width: 800px) {
+  .gallery { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .topbar nav { display: none; }
+  .login { margin-left: auto; }
+  .hero { padding: 48px 16px 40px; }
+  .hero h1 { font-size: 44px; }
+  .lead { font-size: 20px; }
+  .intro { font-size: 16px; }
+  .url { padding: 0 20px; }
+  section { padding-top: 72px; }
+  h2 { font-size: 28px; }
+  .quote blockquote { font-size: 21px; }
+}
