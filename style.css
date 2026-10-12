@@ -56,8 +56,8 @@ a { color: var(--primary); }
   text-decoration: none;
   font-size: 20px;
 }
-.topbar nav { display: flex; gap: 4px; margin-left: auto; }
-.topbar nav a,
+.sections { display: flex; gap: 4px; margin-left: auto; }
+.sections a,
 .login {
   color: var(--on-primary-muted);
   font-size: 14px;
@@ -67,13 +67,35 @@ a { color: var(--primary); }
   border-radius: 4px;
   transition: background-color 0.2s, color 0.2s;
 }
-.topbar nav a { text-transform: uppercase; }
-.topbar nav a:hover,
-.topbar nav a:focus-visible,
+.sections a { text-transform: uppercase; }
+.sections a:hover,
+.sections a:focus-visible,
 .login:hover,
 .login:focus-visible { color: var(--on-primary); background: rgba(255, 255, 255, 0.12); outline: none; }
 /* A quiet link for the app's users */
 .login { margin-left: 12px; font-size: 13px; }
+
+/* Language: FI and EN side by side, the current one filled */
+.lang {
+  display: flex;
+  flex-shrink: 0;
+  margin-left: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.lang a {
+  padding: 4px 10px;
+  color: var(--on-primary-muted);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+.lang a:hover,
+.lang a:focus-visible { color: var(--on-primary); background: rgba(255, 255, 255, 0.12); outline: none; }
+.lang a[aria-current] { color: var(--primary); background: var(--on-primary); }
+.lang a[aria-current]:focus-visible { text-decoration: underline; }
 
 /* Hero: a short line on what Siikli is, then the details and the one number
    in plain text */
@@ -232,7 +254,7 @@ footer p { margin: 4px 0; }
 }
 
 @media (max-width: 600px) {
-  .topbar nav { display: none; }
+  .sections { display: none; }
   .login { margin-left: auto; }
   .hero { padding: 48px 16px 40px; }
   .hero h1 { font-size: 44px; }
@@ -242,4 +264,10 @@ footer p { margin: 4px 0; }
   section { padding-top: 72px; }
   h2 { font-size: 28px; }
   .quote blockquote { font-size: 21px; }
+}
+
+/* On phones the name is in the heading right below, so the top bar keeps
+   only the logo and the login fits on one line */
+@media (max-width: 420px) {
+  .logo span { display: none; }
 }

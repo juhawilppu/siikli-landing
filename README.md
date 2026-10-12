@@ -96,6 +96,10 @@ app itself is in a private repository. The page is plain HTML and CSS with no
 build step, published with GitHub Pages from `main`. All screenshots use demo
 data.
 
+The page is in Finnish at `/` (`index.html`) and in English at `/en/`
+(`en/index.html`), with a switch in the top bar. A change to the text goes in
+both.
+
 To preview it locally:
 
 ```sh
