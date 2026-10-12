@@ -1,12 +1,13 @@
-/* The look of the Siikli app itself: Angular Material 1.1's indigo theme, the
-   grey of the tab bar, uppercase buttons, and Roboto. Indigo is kept for the
-   toolbar and for what can be clicked, so the screenshots stand out. */
+/* The look of the Siikli app itself: Angular Material 1.1's indigo theme,
+   uppercase buttons, and Roboto. Indigo is kept for the toolbar and for what
+   can be clicked, so the screenshots stand out. */
 
 :root {
   --primary: #3f51b5;        /* the app's toolbar and links */
-  --hero-tint: #eef0f9;      /* a faint indigo at the top of the page */
-  --nav: #dadfe1;            /* the app's tab bar */
-  --bg: #fafafa;
+  --primary-dark: #303f9f;
+  --primary-tint: #e8eaf6;   /* indigo 50, behind icons and the note */
+  --glow: rgba(63, 81, 181, 0.16);
+  --bg: #f7f8fc;
   --surface: #ffffff;
   --window-bar: #eceef1;
   --text: rgba(0, 0, 0, 0.87);
@@ -14,9 +15,11 @@
   --line: rgba(0, 0, 0, 0.08);
   --on-primary: #ffffff;
   --on-primary-muted: rgba(255, 255, 255, 0.8);
-  --radius: 8px;
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.06);
-  --shadow-raised: 0 2px 6px rgba(0, 0, 0, 0.1), 0 12px 28px rgba(0, 0, 0, 0.1);
+  --radius: 10px;
+  --radius-large: 16px;
+  --shadow: 0 1px 3px rgba(26, 35, 126, 0.06), 0 6px 16px rgba(26, 35, 126, 0.06);
+  --shadow-raised: 0 2px 6px rgba(26, 35, 126, 0.08), 0 16px 36px rgba(26, 35, 126, 0.14);
+  --shadow-hero: 0 2px 6px rgba(26, 35, 126, 0.06), 0 32px 72px -16px rgba(26, 35, 126, 0.32);
   --shadow-toolbar: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.14);
 }
 
@@ -100,21 +103,41 @@ a { color: var(--primary); }
 /* Hero: a short line on what Siikli is, then the details and the one number
    in plain text */
 .hero {
-  padding: 72px 16px 56px;
+  position: relative;
+  padding: 80px 16px 64px;
   text-align: center;
-  background: linear-gradient(180deg, var(--hero-tint) 0%, var(--bg) 100%);
+}
+/* An indigo glow and a dot grid behind the hero, fading out under the top
+   of the screenshot */
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 -360px;
+  background:
+    radial-gradient(ellipse 50% 60% at 50% 0%, var(--glow), transparent 70%),
+    radial-gradient(var(--glow) 1px, transparent 1.5px) 0 0 / 24px 24px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 100% at 50% 0%, #000 35%, transparent 100%);
+  mask-image: radial-gradient(ellipse 75% 100% at 50% 0%, #000 35%, transparent 100%);
+  pointer-events: none;
+}
+.mark {
+  display: block;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  box-shadow: 0 10px 28px rgba(33, 150, 243, 0.35);
 }
 .hero h1 {
   margin: 0 0 16px;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.5px;
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
 }
 .lead {
   max-width: 680px;
   margin: 0 auto;
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 300;
   line-height: 1.45;
 }
@@ -126,24 +149,62 @@ a { color: var(--primary); }
 
 /* Sections */
 main { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
-section { padding-top: 88px; }
+section { padding-top: 112px; }
 
+/* Headings end in a short indigo rule */
 h2 {
-  margin: 0 0 40px;
-  font-size: 34px;
+  margin: 0 0 48px;
+  font-size: 36px;
   font-weight: 400;
   line-height: 1.2;
+  letter-spacing: -0.5px;
   text-align: center;
 }
-h2:has(+ .note) { margin-bottom: 8px; }
-.note { margin: 0 0 32px; color: var(--muted); text-align: center; }
+h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin: 18px auto 0;
+  border-radius: 2px;
+  background: var(--primary);
+}
+h2:has(+ .note) { margin-bottom: 20px; }
+.note {
+  width: fit-content;
+  margin: 0 auto 44px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: var(--primary-tint);
+  color: var(--primary-dark);
+  font-size: 14px;
+}
 
-/* Why Siikli: a few lines and the customer's own words */
-.why { max-width: 720px; margin: 0 auto; text-align: center; }
-.why p { margin: 0 0 12px; }
-.quote { margin: 36px 0 0; }
-.quote blockquote { margin: 0; font-size: 26px; font-weight: 300; line-height: 1.4; }
-.quote figcaption { margin-top: 12px; color: var(--muted); }
+/* Why Siikli: a few lines and the customer's own words in a card */
+.why { max-width: 760px; margin: 0 auto; text-align: center; }
+.why p { margin: 0 0 12px; font-size: 17px; }
+.quote {
+  position: relative;
+  margin: 64px 0 0;
+  padding: 52px 48px 40px;
+  border-radius: var(--radius-large);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+/* A round quote badge on the card's top edge */
+.quote::before {
+  content: "";
+  position: absolute;
+  top: -26px;
+  left: calc(50% - 26px);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z'/%3E%3C/svg%3E") center / 26px no-repeat;
+  box-shadow: 0 6px 16px rgba(63, 81, 181, 0.35);
+}
+.quote blockquote { margin: 0; font-size: 27px; font-weight: 300; line-height: 1.4; }
+.quote figcaption { margin-top: 16px; color: var(--muted); }
 
 /* Screenshots in browser windows */
 .shot { margin: 0; }
@@ -154,21 +215,23 @@ h2:has(+ .note) { margin-bottom: 8px; }
   background: var(--surface);
   box-shadow: var(--shadow);
   text-decoration: none;
-  transition: box-shadow 0.2s;
+  cursor: zoom-in;
+  transition: box-shadow 0.25s, transform 0.25s;
 }
 .window:hover,
-.window:focus-visible { box-shadow: var(--shadow-raised); outline: none; }
+.window:focus-visible { box-shadow: var(--shadow-raised); }
+.window:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
 .window-bar {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  height: 28px;
+  height: 30px;
   padding: 0 12px;
   background: var(--window-bar);
   border-bottom: 1px solid var(--line);
 }
 .dots { display: flex; gap: 6px; }
-.dots i { width: 9px; height: 9px; border-radius: 50%; background: rgba(0, 0, 0, 0.14); }
+.dots i { width: 10px; height: 10px; border-radius: 50%; background: rgba(0, 0, 0, 0.14); }
 .url {
   padding: 0 40px;
   border-radius: 4px;
@@ -185,41 +248,67 @@ h2:has(+ .note) { margin-bottom: 8px; }
   object-fit: cover;
   object-position: top;
 }
-.shot figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); }
+.shot figcaption { margin-top: 16px; font-size: 14px; color: var(--muted); }
 .shot figcaption b { color: var(--text); font-weight: 500; }
-.shot figcaption h3 { margin: 0 0 4px; color: var(--text); font-size: 18px; font-weight: 500; }
+.shot figcaption h3 { margin: 0 0 6px; color: var(--text); font-size: 19px; font-weight: 500; }
 .shot figcaption p { margin: 0; font-size: 15px; }
 
 .hero-shot { max-width: 1000px; margin: 0 auto; }
-.hero-shot .window { box-shadow: var(--shadow-raised); }
+.hero-shot .window,
+.hero-shot .window:hover { box-shadow: var(--shadow-hero); }
 .hero-shot img { aspect-ratio: 16 / 10; }
-.hero-shot figcaption { text-align: center; }
+.hero-shot figcaption { margin-top: 20px; text-align: center; }
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px 28px;
+  gap: 56px 32px;
 }
 
-/* Features without a screen, in the same grid as the screenshots */
+/* Features without a screen, in the same grid as the screenshots, each with
+   an icon */
 .card {
-  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 28px;
   border-radius: var(--radius);
   background: var(--surface);
   box-shadow: var(--shadow);
 }
-.card h3 { margin: 0 0 4px; font-size: 18px; font-weight: 500; }
-.card p { margin: 0; color: var(--muted); font-size: 15px; }
+.icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--primary-tint);
+  color: var(--primary);
+}
+.icon svg { width: 28px; height: 28px; fill: currentColor; }
+.card h3 { margin: 0 0 4px; font-size: 19px; font-weight: 500; }
+.card p { margin: 0; color: var(--muted); font-size: 15px; text-wrap: pretty; }
 
 footer {
-  margin-top: 96px;
-  padding: 28px 16px 36px;
-  background: var(--nav);
+  margin-top: 128px;
+  padding: 40px 16px 48px;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
   color: var(--muted);
   text-align: center;
   font-size: 14px;
 }
 footer p { margin: 4px 0; }
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: var(--text);
+  font-size: 18px;
+}
 
 /* Full-size screenshot */
 .lightbox {
@@ -232,7 +321,7 @@ footer p { margin: 4px 0; }
   box-shadow: var(--shadow-raised);
   overflow: auto;
 }
-.lightbox::backdrop { background: rgba(0, 0, 0, 0.6); }
+.lightbox::backdrop { background: rgba(14, 18, 48, 0.6); backdrop-filter: blur(4px); }
 .lightbox img { display: block; width: 100%; height: auto; }
 .lightbox form { position: sticky; top: 0; height: 0; text-align: right; }
 .lightbox .close {
@@ -249,6 +338,19 @@ footer p { margin: 4px 0; }
   box-shadow: var(--shadow-raised);
 }
 
+/* Movement only for those who haven't asked for less of it */
+@media (prefers-reduced-motion: no-preference) {
+  .gallery .window:hover,
+  .gallery .window:focus-visible { transform: translateY(-4px); }
+  .lightbox[open] { animation: zoom-in 0.2s ease-out; }
+  .lightbox[open]::backdrop { animation: fade-in 0.2s ease-out; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+@keyframes zoom-in { from { opacity: 0; transform: scale(0.97); } }
+@keyframes fade-in { from { opacity: 0; } }
+
 @media (max-width: 800px) {
   .gallery { grid-template-columns: 1fr; }
 }
@@ -257,13 +359,17 @@ footer p { margin: 4px 0; }
   .sections { display: none; }
   .login { margin-left: auto; }
   .hero { padding: 48px 16px 40px; }
-  .hero h1 { font-size: 44px; }
+  .mark { width: 64px; height: 64px; margin-bottom: 20px; }
+  .hero h1 { font-size: 48px; letter-spacing: -1px; }
   .lead { font-size: 20px; }
   .intro { font-size: 16px; }
   .url { padding: 0 20px; }
-  section { padding-top: 72px; }
-  h2 { font-size: 28px; }
+  section { padding-top: 80px; }
+  h2 { font-size: 30px; margin-bottom: 36px; }
+  .quote { padding: 44px 24px 28px; }
   .quote blockquote { font-size: 21px; }
+  .card { padding: 22px; gap: 16px; }
+  footer { margin-top: 96px; }
 }
 
 /* On phones the name is in the heading right below, so the top bar keeps
