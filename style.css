@@ -391,6 +391,16 @@ h2:has(+ .note) { margin-bottom: 20px; }
   box-shadow: var(--shadow-hero);
 }
 .contact p { margin: 0 0 28px; color: var(--on-primary-muted); text-wrap: pretty; }
+/* Who the email goes to */
+.person { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.person img {
+  flex: none;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(14, 18, 48, 0.3);
+}
+.contact .person p { margin: 0; font-size: 14px; line-height: 1.4; }
+.person b { display: block; color: var(--on-primary); font-size: 17px; font-weight: 500; }
 /* The address as text too, for those whose email isn't in the browser.
    One click selects all of it. */
 .contact .address { margin: 14px 0 0; font-size: 14px; user-select: all; }
