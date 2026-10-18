@@ -392,6 +392,7 @@ h2:has(+ .note) { margin-bottom: 20px; }
 .price .addon { margin: 24px 0 0; padding-top: 16px; border-top: 1px solid var(--line); }
 .price .addon + .addon { margin-top: 16px; }
 .addon b { color: var(--text); font-weight: 500; }
+.addon span { display: block; margin-top: 4px; font-size: 14px; }
 .how h3 { margin: 0 0 20px; font-size: 22px; font-weight: 500; }
 .steps { margin: 0; padding: 0; list-style: none; counter-reset: step; }
 .steps li {
