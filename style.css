@@ -390,6 +390,7 @@ h2:has(+ .note) { margin-bottom: 20px; }
 .price .amount { margin-bottom: 16px; font-size: 17px; }
 .amount b { color: var(--text); font-size: 48px; font-weight: 400; line-height: 1.1; letter-spacing: -1px; }
 .price .addon { margin: 24px 0 0; padding-top: 16px; border-top: 1px solid var(--line); }
+.price .addon + .addon { margin-top: 16px; }
 .addon b { color: var(--text); font-weight: 500; }
 .how h3 { margin: 0 0 20px; font-size: 22px; font-weight: 500; }
 .steps { margin: 0; padding: 0; list-style: none; counter-reset: step; }
