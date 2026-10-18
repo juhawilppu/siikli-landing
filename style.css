@@ -199,6 +199,9 @@ a { color: var(--primary); }
 .button.light { background: var(--on-primary); color: var(--primary); }
 .button.light:hover { background: var(--primary-tint); }
 .button.light:focus-visible { outline-color: var(--on-primary); }
+.button.outline { color: var(--on-primary); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5); }
+.button.outline:hover { background: rgba(255, 255, 255, 0.12); }
+.button.outline:focus-visible { outline-color: var(--on-primary); }
 
 /* Centred text wraps into lines of even length */
 .lead, .intro, .why p, .quote blockquote, .quote figcaption { text-wrap: balance; }
@@ -359,7 +362,65 @@ h2:has(+ .note) { margin-bottom: 20px; }
 .more a:hover,
 .more a:focus-visible { text-decoration: underline; }
 
-/* Get started: who Siikli fits, next to the email that starts it */
+/* Price: the monthly price and the trial next to the steps of getting
+   started, in one card */
+.pricing {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: var(--radius-large);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.price,
+.how { padding: 36px; }
+.how { border-left: 1px solid var(--line); }
+.price p { margin: 0 0 12px; color: var(--muted); font-size: 15px; text-wrap: pretty; }
+.price .trial {
+  width: fit-content;
+  margin-bottom: 20px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: var(--primary-tint);
+  color: var(--primary-dark);
+  font-size: 14px;
+  font-weight: 500;
+}
+.price .amount { margin-bottom: 16px; font-size: 17px; }
+.amount b { color: var(--text); font-size: 48px; font-weight: 400; line-height: 1.1; letter-spacing: -1px; }
+.price .addon { margin: 24px 0 0; padding-top: 16px; border-top: 1px solid var(--line); }
+.addon b { color: var(--text); font-weight: 500; }
+.how h3 { margin: 0 0 20px; font-size: 22px; font-weight: 500; }
+.steps { margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.steps li {
+  position: relative;
+  margin: 0 0 18px;
+  padding-left: 44px;
+  color: var(--muted);
+  font-size: 15px;
+  counter-increment: step;
+  text-wrap: pretty;
+}
+.steps li:last-child { margin-bottom: 0; }
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-tint);
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 500;
+}
+.steps b { display: block; color: var(--text); font-size: 16px; font-weight: 500; }
+
+/* Get started: who Siikli fits, next to the text or email that starts it */
 .start {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -401,9 +462,12 @@ h2:has(+ .note) { margin-bottom: 20px; }
 }
 .contact .person p { margin: 0; font-size: 14px; line-height: 1.4; }
 .person b { display: block; color: var(--on-primary); font-size: 17px; font-weight: 500; }
-/* The address as text too, for those whose email isn't in the browser.
-   One click selects all of it. */
-.contact .address { margin: 14px 0 0; font-size: 14px; user-select: all; }
+/* A text first, since I don't answer unknown numbers, and email next to it */
+.reach { display: flex; flex-wrap: wrap; gap: 12px; }
+/* The number and address as text too, for those whose phone or email isn't
+   in the browser. One click selects either. */
+.contact .address { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 14px 0 0; font-size: 14px; }
+.address span { user-select: all; }
 
 footer {
   margin-top: 128px;
@@ -476,14 +540,18 @@ footer p { margin: 4px 0; }
 @media (max-width: 800px) {
   .gallery,
   .cards,
-  .start { grid-template-columns: 1fr; }
+  .start,
+  .pricing { grid-template-columns: 1fr; }
+  .how { border-left: none; border-top: 1px solid var(--line); }
 }
 
 @media (max-width: 600px) {
   .hero { padding: 48px 16px 40px; }
   .actions { margin-top: 28px; }
   .fit,
-  .contact { padding: 28px 24px; }
+  .contact,
+  .price,
+  .how { padding: 28px 24px; }
   .mark { width: 64px; height: 64px; margin-bottom: 20px; }
   .hero h1 { font-size: 48px; letter-spacing: -1px; }
   .lead { font-size: 20px; }
