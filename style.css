@@ -58,7 +58,7 @@ body {
 
 a { color: var(--primary); }
 
-/* Top bar: the app's blue toolbar */
+/* Top bar: white, as the app's own toolbar */
 .topbar {
   position: sticky;
   top: 0;
@@ -67,21 +67,24 @@ a { color: var(--primary); }
   align-items: center;
   height: 64px;
   padding: 0 16px;
-  background: var(--primary);
-  box-shadow: var(--shadow-toolbar);
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 .logo {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--on-primary);
+  color: var(--text);
   text-decoration: none;
   font-size: 20px;
+  font-weight: 600;
 }
 .sections { display: flex; gap: 4px; margin-left: auto; }
 .sections a,
 .login {
-  color: var(--on-primary-muted);
+  color: var(--muted);
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
@@ -92,7 +95,7 @@ a { color: var(--primary); }
 .sections a:hover,
 .sections a:focus-visible,
 .login:hover,
-.login:focus-visible { color: var(--on-primary); background: rgba(255, 255, 255, 0.12); outline: none; }
+.login:focus-visible { color: var(--text); background: var(--primary-tint); outline: none; }
 /* A quiet link for the app's users */
 .login { margin-left: 12px; font-size: 13px; white-space: nowrap; }
 
@@ -101,8 +104,8 @@ a { color: var(--primary); }
   margin-left: 12px;
   padding: 7px 16px;
   border-radius: 4px;
-  background: var(--on-primary);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--on-primary);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -110,28 +113,28 @@ a { color: var(--primary); }
   transition: background-color 0.2s;
 }
 .get-started:hover,
-.get-started:focus-visible { background: var(--primary-tint); outline: none; }
+.get-started:focus-visible { background: var(--primary-dark); outline: none; }
 
 /* Language: FI and EN side by side, the current one filled */
 .lang {
   display: flex;
   flex-shrink: 0;
   margin-left: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid var(--line);
   border-radius: 4px;
   overflow: hidden;
 }
 .lang a {
   padding: 4px 10px;
-  color: var(--on-primary-muted);
+  color: var(--muted);
   font-size: 13px;
   font-weight: 500;
   text-decoration: none;
   transition: background-color 0.2s, color 0.2s;
 }
 .lang a:hover,
-.lang a:focus-visible { color: var(--on-primary); background: rgba(255, 255, 255, 0.12); outline: none; }
-.lang a[aria-current] { color: var(--primary); background: var(--on-primary); }
+.lang a:focus-visible { color: var(--text); background: var(--primary-tint); outline: none; }
+.lang a[aria-current] { color: var(--on-primary); background: var(--primary); }
 .lang a[aria-current]:focus-visible { text-decoration: underline; }
 
 /* Hero: a short line on what Siikli is, then the details and the one number
