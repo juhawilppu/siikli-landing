@@ -371,18 +371,12 @@ h2:has(+ .note) { margin-bottom: 20px; }
 .card h3 { margin: 0 0 4px; font-size: 18px; font-weight: 600; }
 .card p { margin: 0; color: var(--muted); font-size: 15px; text-wrap: pretty; }
 
-/* Reliability: the same cards, closer together, and a link to the whole
-   story for those who want it */
+/* Reliability: the same cards, closer together */
 .cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px 32px;
 }
-.more { margin: 40px 0 0; text-align: center; font-size: 15px; }
-.more a { font-weight: 500; text-decoration: none; }
-.more a::after { content: " →"; }
-.more a:hover,
-.more a:focus-visible { text-decoration: underline; }
 
 /* Price: the monthly price and the trial next to the steps of getting
    started, in one card */
