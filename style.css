@@ -1,44 +1,47 @@
-/* The look of the Siikli app itself (since 2026-11): Siikli's own blue,
-   #2161a8, for the top bar and what can be clicked, slate-grey text, Plus
-   Jakarta Sans and sharp corners. The font is served from here, not from
+/* The look of the Siikli app itself (since 2026-11-10): Siikli's azure,
+   #1371ea, for what can be clicked; near-black text and neutral greys; Inter
+   with its optical sizes; a white page whose cards are drawn by a hairline,
+   not by a shadow; sharp corners. The font is served from here, not from
    Google. */
 
 @font-face {
-  font-family: "Plus Jakarta Sans";
+  font-family: "Inter";
   font-style: normal;
   font-display: swap;
-  font-weight: 200 800;
-  src: url("fonts/plus-jakarta-sans-latin-ext-wght-normal.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  src: url("fonts/inter-latin-ext-opsz-normal.woff2") format("woff2-variations");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
-  font-family: "Plus Jakarta Sans";
+  font-family: "Inter";
   font-style: normal;
   font-display: swap;
-  font-weight: 200 800;
-  src: url("fonts/plus-jakarta-sans-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  src: url("fonts/inter-latin-opsz-normal.woff2") format("woff2-variations");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 :root {
-  --primary: #2161a8;        /* Siikli's blue: the app's buttons, links and toolbar */
-  --primary-dark: #1a4e88;
-  --primary-tint: #e9f0f8;   /* behind icons and the notes */
-  --glow: rgba(33, 97, 168, 0.14);
-  --bg: #f8fafc;
+  --primary: #1371ea;        /* Siikli's azure: the app's buttons and links */
+  --primary-dark: #005ed5;   /* a button under the pointer: darker, not paler */
+  --primary-tint: #edf6ff;   /* behind icons and the notes */
+  --glow: rgba(19, 113, 234, 0.12);
+  --bg: #ffffff;
   --surface: #ffffff;
-  --window-bar: #eef1f5;
-  --text: #1e293b;           /* slate, as in the app */
-  --muted: #64748b;
-  --line: rgba(15, 23, 42, 0.09);
+  --window-bar: #f4f4f5;
+  --footer: #fafafa;
+  --text: #09090b;           /* near-black and neutral greys, as in the app */
+  --muted: #5f5f69;
+  --line: #e6e6e8;           /* the app's hairline */
   --on-primary: #ffffff;
-  --on-primary-muted: rgba(255, 255, 255, 0.82);
+  --on-primary-muted: rgba(255, 255, 255, 0.85);
   --radius: 6px;
   --radius-large: 8px;
-  --shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 4px 14px rgba(15, 23, 42, 0.06);
-  --shadow-raised: 0 2px 6px rgba(15, 23, 42, 0.08), 0 16px 36px rgba(15, 23, 42, 0.12);
-  --shadow-hero: 0 2px 6px rgba(15, 23, 42, 0.06), 0 32px 72px -16px rgba(26, 78, 136, 0.3);
-  --shadow-toolbar: 0 1px 3px rgba(15, 23, 42, 0.18);
+  /* A card's edge is a hairline (the first shadow), with barely a shadow
+     under it: crisp on the white page, not floating in a haze */
+  --shadow: 0 0 0 1px var(--line), 0 1px 2px rgba(9, 9, 11, 0.04);
+  --shadow-raised: 0 0 0 1px var(--line), 0 2px 4px rgba(9, 9, 11, 0.04), 0 12px 32px rgba(9, 9, 11, 0.08);
+  --shadow-hero: 0 0 0 1px var(--line), 0 32px 72px -24px rgba(19, 113, 234, 0.28);
 }
 
 * { box-sizing: border-box; }
@@ -49,10 +52,11 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Inter's flat-based 1 and its rounder quotes and commas, as in the app */
+  font-feature-settings: "cv01", "ss03";
   font-size: 16px;
-  line-height: 1.65;
-  letter-spacing: 0.01em;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -65,12 +69,10 @@ a { color: var(--primary); }
   z-index: 20;
   display: flex;
   align-items: center;
-  height: 64px;
+  height: 60px;
   padding: 0 16px;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--surface);
   border-bottom: 1px solid var(--line);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
 }
 .logo {
   display: flex;
@@ -78,8 +80,9 @@ a { color: var(--primary); }
   gap: 12px;
   color: var(--text);
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 .sections { display: flex; gap: 4px; margin-left: auto; }
 .sections a,
@@ -170,7 +173,7 @@ a { color: var(--primary); }
   font-size: 64px;
   font-weight: 650;
   line-height: 1.05;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.035em;
 }
 .lead {
   max-width: 680px;
@@ -208,7 +211,8 @@ a { color: var(--primary); }
 .button.primary {
   background: var(--primary);
   color: var(--on-primary);
-  box-shadow: 0 4px 14px rgba(33, 97, 168, 0.3);
+  /* As the app's: a light edge on top, a slight shadow under */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 1px 2px rgba(9, 9, 11, 0.12), 0 6px 16px -6px rgba(19, 113, 234, 0.45);
 }
 .button.primary:hover { background: var(--primary-dark); }
 .button.secondary { background: var(--surface); color: var(--primary); box-shadow: var(--shadow); }
@@ -234,7 +238,7 @@ h2 {
   font-size: 36px;
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.025em;
   text-align: center;
 }
 h2::after {
@@ -278,7 +282,7 @@ h2:has(+ .note) { margin-bottom: 20px; }
   height: 52px;
   border-radius: 50%;
   background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z'/%3E%3C/svg%3E") center / 26px no-repeat;
-  box-shadow: 0 6px 16px rgba(33, 97, 168, 0.35);
+  box-shadow: 0 6px 16px rgba(19, 113, 234, 0.35);
 }
 .quote blockquote { margin: 0; font-size: 26px; font-weight: 400; line-height: 1.45; }
 .quote figcaption { margin-top: 16px; color: var(--muted); }
@@ -406,7 +410,7 @@ h2:has(+ .note) { margin-bottom: 20px; }
   font-weight: 600;
 }
 .price .amount { margin-bottom: 16px; font-size: 17px; }
-.amount b { color: var(--text); font-size: 48px; font-weight: 650; line-height: 1.1; letter-spacing: -1px; }
+.amount b { color: var(--text); font-size: 48px; font-weight: 650; line-height: 1.1; letter-spacing: -0.03em; }
 .price .addon { margin: 24px 0 0; padding-top: 16px; border-top: 1px solid var(--line); }
 .price .addon + .addon { margin-top: 16px; }
 .addon b { color: var(--text); font-weight: 500; }
@@ -464,7 +468,7 @@ h2:has(+ .note) { margin-bottom: 20px; }
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: var(--primary-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232161a8'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center / 16px no-repeat;
+  background: var(--primary-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231371ea'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center / 16px no-repeat;
 }
 .contact {
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
@@ -478,7 +482,7 @@ h2:has(+ .note) { margin-bottom: 20px; }
   flex: none;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
+  box-shadow: 0 4px 12px rgba(9, 9, 11, 0.3);
 }
 .contact .person p { margin: 0; font-size: 14px; line-height: 1.4; }
 .person b { display: block; color: var(--on-primary); font-size: 17px; font-weight: 500; }
@@ -493,7 +497,7 @@ footer {
   margin-top: 128px;
   padding: 40px 16px 48px;
   border-top: 1px solid var(--line);
-  background: var(--surface);
+  background: var(--footer);
   color: var(--muted);
   text-align: center;
   font-size: 14px;
@@ -520,7 +524,7 @@ footer p { margin: 4px 0; }
   box-shadow: var(--shadow-raised);
   overflow: auto;
 }
-.lightbox::backdrop { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); }
+.lightbox::backdrop { background: rgba(9, 9, 11, 0.6); }
 .lightbox img { display: block; width: 100%; height: auto; }
 .lightbox form { position: sticky; top: 0; height: 0; text-align: right; }
 .lightbox .close {
@@ -573,7 +577,7 @@ footer p { margin: 4px 0; }
   .price,
   .how { padding: 28px 24px; }
   .mark { width: 64px; height: 64px; margin-bottom: 20px; }
-  .hero h1 { font-size: 48px; letter-spacing: -1px; }
+  .hero h1 { font-size: 48px; }
   .lead { font-size: 20px; }
   .intro { font-size: 16px; }
   .url { padding: 0 20px; }
