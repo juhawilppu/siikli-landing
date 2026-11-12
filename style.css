@@ -1,8 +1,9 @@
-/* The look of the Siikli app itself (since 2026-11-10): Siikli's azure,
-   #1371ea, for what can be clicked; near-black text and neutral greys; Inter
-   with its optical sizes; a white page whose cards are drawn by a hairline,
-   not by a shadow; sharp corners. The font is served from here, not from
-   Google. */
+/* The look of the Siikli app itself (design A, since 2026-11-11): Siikli's
+   azure, #1371ea, for what can be clicked, and the logo in it; near-black
+   text and neutral greys; Inter with its optical sizes; a light grey page,
+   so the white cards and the white top bar read as surfaces, the cards drawn
+   by a hairline, not by a shadow; corners of 6 px on cards, 5 px on buttons.
+   The font is served from here, not from Google. */
 
 @font-face {
   font-family: "Inter";
@@ -26,10 +27,10 @@
   --primary-dark: #005ed5;   /* a button under the pointer: darker, not paler */
   --primary-tint: #edf6ff;   /* behind icons and the notes */
   --glow: rgba(19, 113, 234, 0.12);
-  --bg: #ffffff;
+  --bg: #f6f7f8;             /* the app's page: oklch(0.975 0.0025 264) */
   --surface: #ffffff;
   --window-bar: #f4f4f5;
-  --footer: #fafafa;
+  --footer: #ffffff;         /* white, as the top bar */
   --text: #09090b;           /* near-black and neutral greys, as in the app */
   --muted: #5f5f69;
   --line: #e6e6e8;           /* the app's hairline */
@@ -37,8 +38,9 @@
   --on-primary-muted: rgba(255, 255, 255, 0.85);
   --radius: 6px;
   --radius-large: 8px;
+  --radius-control: 5px;     /* buttons, the language switch, small labels */
   /* A card's edge is a hairline (the first shadow), with barely a shadow
-     under it: crisp on the white page, not floating in a haze */
+     under it: crisp on the grey page, not floating in a haze */
   --shadow: 0 0 0 1px var(--line), 0 1px 2px rgba(9, 9, 11, 0.04);
   --shadow-raised: 0 0 0 1px var(--line), 0 2px 4px rgba(9, 9, 11, 0.04), 0 12px 32px rgba(9, 9, 11, 0.08);
   --shadow-hero: 0 0 0 1px var(--line), 0 32px 72px -24px rgba(19, 113, 234, 0.28);
@@ -92,7 +94,7 @@ a { color: var(--primary); }
   font-weight: 500;
   text-decoration: none;
   padding: 8px 14px;
-  border-radius: 4px;
+  border-radius: var(--radius-control);
   transition: background-color 0.2s, color 0.2s;
 }
 .sections a:hover,
@@ -106,7 +108,7 @@ a { color: var(--primary); }
 .get-started {
   margin-left: 12px;
   padding: 7px 16px;
-  border-radius: 4px;
+  border-radius: var(--radius-control);
   background: var(--primary);
   color: var(--on-primary);
   font-size: 14px;
@@ -124,7 +126,7 @@ a { color: var(--primary); }
   flex-shrink: 0;
   margin-left: 12px;
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: var(--radius-control);
   overflow: hidden;
 }
 .lang a {
@@ -166,7 +168,7 @@ a { color: var(--primary); }
 .mark {
   display: block;
   margin: 0 auto 24px;
-  filter: drop-shadow(0 6px 14px rgba(33, 150, 243, 0.3));
+  filter: drop-shadow(0 6px 14px rgba(19, 113, 234, 0.3));
 }
 .hero h1 {
   margin: 0 0 16px;
@@ -200,7 +202,7 @@ a { color: var(--primary); }
   gap: 10px;
   min-height: 44px;
   padding: 10px 22px;
-  border-radius: 4px;
+  border-radius: var(--radius-control);
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
@@ -255,7 +257,7 @@ h2:has(+ .note) { margin-bottom: 20px; }
   width: fit-content;
   margin: 0 auto 44px;
   padding: 4px 12px;
-  border-radius: 4px;
+  border-radius: var(--radius-control);
   background: var(--primary-tint);
   color: var(--primary-dark);
   font-size: 14px;
@@ -315,7 +317,7 @@ h2:has(+ .note) { margin-bottom: 20px; }
 .dots i { width: 10px; height: 10px; border-radius: 50%; background: rgba(0, 0, 0, 0.14); }
 .url {
   padding: 0 40px;
-  border-radius: 4px;
+  border-radius: var(--radius-control);
   background: var(--surface);
   color: var(--muted);
   font-size: 12px;
@@ -397,7 +399,7 @@ h2:has(+ .note) { margin-bottom: 20px; }
   width: fit-content;
   margin-bottom: 20px;
   padding: 4px 12px;
-  border-radius: 4px;
+  border-radius: var(--radius-control);
   background: var(--primary-tint);
   color: var(--primary-dark);
   font-size: 14px;
