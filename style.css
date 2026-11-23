@@ -177,14 +177,19 @@ a { color: var(--primary); }
   line-height: 1.05;
   letter-spacing: -0.035em;
 }
-.lead {
-  max-width: 680px;
-  margin: 0 auto;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.45;
+/* The slogan, right under the name, in Siikli's blue: maalaisjärki is both
+   common sense and the countryside's, which is where the customers are */
+.tagline {
+  margin: -4px 0 24px;
+  color: var(--primary);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
-.intro { max-width: 600px; margin: 20px auto 0; color: var(--muted); font-size: 17px; }
+/* What Siikli is and the one number, in one paragraph: three kinds of text in
+   the hero (name, slogan, this), not more */
+.intro { max-width: 640px; margin: 0 auto; color: var(--muted); font-size: 18px; }
 .intro strong { color: var(--text); font-weight: 500; }
 
 /* Buttons: as the app's own */
@@ -226,9 +231,14 @@ a { color: var(--primary); }
 .button.outline { color: var(--on-primary); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5); }
 .button.outline:hover { background: rgba(255, 255, 255, 0.12); }
 .button.outline:focus-visible { outline-color: var(--on-primary); }
+/* Under the hero's buttons: how the trial starts, so no one expects a sales
+   call first */
+.actions-note { margin: 16px 0 0; color: var(--muted); font-size: 14px; }
+/* The trial's button, under the steps and under the list of who Siikli fits */
+.try { margin-top: 28px; }
 
 /* Centred text wraps into lines of even length */
-.lead, .intro, .why p, .quote blockquote, .quote figcaption { text-wrap: balance; }
+.intro, .why p, .quote blockquote, .quote figcaption { text-wrap: balance; }
 
 /* Sections */
 main { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
@@ -456,7 +466,7 @@ h2:has(+ .note) { margin-bottom: 20px; }
 .fit,
 .contact { padding: 36px; border-radius: var(--radius-large); background: var(--surface); box-shadow: var(--shadow); }
 .fit h3 { margin: 0 0 18px; font-size: 21px; font-weight: 600; }
-/* What to tell us, under the list */
+/* For those who would rather talk first, under the list and the trial's button */
 .fit > p { margin: 24px 0 0; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); text-wrap: pretty; }
 .checks { margin: 0; padding: 0; list-style: none; }
 .checks li { position: relative; margin: 0 0 14px; padding-left: 38px; text-wrap: pretty; }
@@ -528,6 +538,14 @@ footer {
   font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.01em;
+}
+/* The hero's slogan again, quietly, as one phrase with the name: "Siikli –
+   tehty maalaisjärjellä", in grey. The logo's gap would put more room before
+   the dash than after it, so the slogan takes some of it back. */
+.footer-tagline {
+  margin-left: -5px;
+  color: var(--muted);
+  font-weight: 400;
 }
 .footer-links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 0; }
 .footer-links a { color: var(--muted); font-weight: 500; text-decoration: none; transition: color 0.2s; }
@@ -646,8 +664,8 @@ footer {
   .how { padding: 28px 24px; }
   .mark { width: 64px; height: 64px; margin-bottom: 20px; }
   .hero h1 { font-size: 48px; }
-  .lead { font-size: 20px; }
-  .intro { font-size: 16px; }
+  .tagline { margin-bottom: 20px; font-size: 23px; }
+  .intro { font-size: 17px; }
   .url { padding: 0 20px; }
   section { padding-top: 80px; }
   h2 { font-size: 30px; margin-bottom: 36px; }

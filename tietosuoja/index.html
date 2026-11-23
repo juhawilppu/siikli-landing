@@ -11,7 +11,7 @@
   <link rel="alternate" hreflang="x-default" href="https://siikli.fi/tietosuoja/">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/png" href="../images/logo.png">
-  <link rel="stylesheet" href="../style.css?v=2">
+  <link rel="stylesheet" href="../style.css?v=3">
 </head>
 <body>
   <header class="topbar">
@@ -25,14 +25,14 @@
 
   <main class="legal">
     <h1>Tietosuojaseloste</h1>
-    <p class="updated">Päivitetty <time datetime="2026-11-20">20.11.2026</time></p>
+    <p class="updated">Päivitetty <time datetime="2026-11-23">23.11.2026</time></p>
 
     <div class="summary">
       <h2>Lyhyesti</h2>
       <ul class="checks">
         <li>Käsittelemme vain tietoja, joita kirjautuminen, Siiklin käyttö ja asiakkuus vaativat.</li>
         <li>Emme myy tietoja emmekä käytä niitä mainontaan.</li>
-        <li>Google-kirjautumisesta Siikli saa vain sähköpostiosoitteenne ja profiilin perustiedot, ei pääsyä muihin Google-tilinne tietoihin.</li>
+        <li>Google-kirjautumisesta Siikli käyttää vain sähköpostiosoitettanne, eikä se saa pääsyä muihin Google-tilinne tietoihin.</li>
         <li>Sovelluksen tiedot ja varmuuskopiot ovat EU:ssa, ja varmuuskopiot salataan ennen kuin ne lähtevät palvelimelta.</li>
         <li>Sivu siikli.fi ei käytä evästeitä eikä analytiikkaa.</li>
       </ul>
@@ -52,18 +52,19 @@
       </ul>
 
       <h2 id="kayttajat">3. Sovelluksen käyttäjät</h2>
-      <p>Asiakasyrityksen pääkäyttäjä lisää Siikliin yrityksensä käyttäjät. Käyttäjästä tallennetaan:</p>
+      <p>Kun yritys luo Siikliin tunnuksen, tallennamme yrityksen nimen, luojan sähköpostiosoitteen sekä ajan, jolloin käyttöehdot hyväksyttiin, ja ehtojen version. Tunnuksen luojasta tulee yrityksen pääkäyttäjä, ja pääkäyttäjä lisää yrityksen muut käyttäjät. Käyttäjästä tallennetaan:</p>
       <ul>
-        <li>käyttäjätunnus ja rooli, esimerkiksi toimisto tai varasto</li>
-        <li>salasanan tiiviste, jos käyttäjä kirjautuu salasanalla. Salasanaa itseään emme tallenna emmekä näe.</li>
-        <li>sähköpostiosoite ja Google-tilin tunniste, jos käyttäjä kirjautuu Google-tilillä (kohta 4).</li>
+        <li>käyttäjätunnus, joka on yleensä sähköpostiosoite, ja rooli, esimerkiksi toimisto tai varasto</li>
+        <li>salasanan tiiviste, jos käyttäjällä on salasana. Salasanaa itseään emme tallenna emmekä näe.</li>
+        <li>kirjautumiskoodin tiiviste, kun käyttäjä kirjautuu sähköpostiin lähetetyllä koodilla.</li>
       </ul>
       <p>Käytämme näitä tietoja kirjautumiseen ja sen tarkistamiseen, mitä kukin käyttäjä saa nähdä ja tehdä. Käsittelyn peruste on oikeutettu etu: tuotamme palvelua asiakasyritykselle ja sen käyttäjille sopimuksen mukaisesti.</p>
       <p>Palvelin kirjaa jokaisesta pyynnöstä ajan, IP-osoitteen, pyydetyn osoitteen ja vastauksen tilan. Lokeja käytetään vikojen selvittämiseen ja tietoturvan valvontaan, ja ne poistuvat 90 päivän kuluttua. Peruste on oikeutettu etu: palvelun toimivuus ja tietoturva.</p>
+      <p>Jokaisesta onnistuneesta kirjautumisesta ja jokaisesta uudesta yrityksestä lähtee ylläpitäjälle ilmoitus sähköpostilla. Siinä ovat käyttäjä, rooli, yritys, kirjautumistapa, aika, IP-osoite ja selaimen tiedot. Ilmoituksilla havaitaan väärinkäytökset, ja niiden avulla autamme uusia asiakkaita alkuun. Peruste on oikeutettu etu: palvelun tietoturva ja tuki.</p>
 
       <h2 id="google">4. Kirjautuminen Google-tilillä</h2>
       <p>Kun kirjaudutte Google-tilillä, Google kertoo Siiklille sähköpostiosoitteenne, Google-tilinne tunnisteen ja profiilinne perustiedot (nimen ja profiilikuvan). Siikli ei pyydä pääsyä Gmailiin, Driveen, kalenteriin, yhteystietoihin tai muihin Google-tilinne tietoihin.</p>
-      <p>Käytämme näitä tietoja vain kirjautumiseen: tarkistamme, että sähköpostiosoite kuuluu käyttäjälle, jonka yrityksenne on lisännyt Siikliin, ja kirjaamme teidät sisään. Tallennamme käyttäjän tietoihin vain sähköpostiosoitteen ja Google-tilin tunnisteen. Ne poistuvat, kun käyttäjä poistetaan.</p>
+      <p>Näistä käytämme vain sähköpostiosoitetta, jonka Google on vahvistanut, ja vain tunnuksen luomiseen ja kirjautumiseen. Kun kirjaudutte, tarkistamme, että osoite on Siiklin käyttäjän käyttäjätunnus, ja kirjaamme teidät sisään. Kun luotte tunnuksen Google-tilillä, osoitteesta tulee pääkäyttäjän käyttäjätunnus. Muita Googlelta saatuja tietoja emme tallenna. Osoite poistuu, kun käyttäjä poistetaan.</p>
       <p>Emme myy Googlelta saatuja tietoja, emme luovuta niitä eteenpäin emmekä käytä niitä mainontaan tai tekoälymallien kouluttamiseen.</p>
       <p>Siiklin tapa käyttää Googlen rajapinnoista saatuja tietoja noudattaa <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a> ‑käytäntöä, myös sen Limited Use ‑vaatimuksia.</p>
       <p>Google käsittelee kirjautumista omana rekisterinpitäjänään <a href="https://policies.google.com/privacy?hl=fi">Googlen tietosuojakäytännön</a> mukaisesti.</p>
@@ -80,13 +81,14 @@
       <h2 id="evasteet">7. Verkkosivu ja evästeet</h2>
       <p>siikli.fi ei aseta evästeitä eikä käytä analytiikkaa, mainosseurantaa tai muiden palveluiden skriptejä. Myös fontit ladataan siikli.fi:stä itsestään. Sivun palvelimena on GitHub Pages, joka kirjaa kävijöiden IP-osoitteet tietoturvaa varten <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHubin tietosuojaselosteen</a> mukaisesti.</p>
       <p>Siikli-sovellus käyttää kahta välttämätöntä evästettä: kirjautumisevästettä, joka pitää teidät kirjautuneena, ja suojausevästettä, joka estää toiselta sivustolta lähetetyt pyynnöt. Seuranta- tai mainosevästeitä Siiklissä ei ole.</p>
+      <p>Kirjautumissivu ja tunnuksen luontisivu lataavat Google-kirjautumisen painikkeen Googlelta, joten Google saa tiedon sivun avaamisesta, esimerkiksi IP-osoitteen.</p>
 
       <h2 id="vastaanottajat">8. Kuka tietoja käsittelee</h2>
       <p>Emme myy tietoja emmekä luovuta niitä markkinointiin. Käytämme näitä palveluntarjoajia:</p>
       <ul>
         <li><b>DigitalOcean</b>: Siiklin palvelin Amsterdamissa, Alankomaissa.</li>
-        <li><b>Amazon Web Services</b>: varmuuskopiot Tukholmassa, Ruotsissa. Ne salataan jo palvelimella, ja purkuavain on vain meillä, joten AWS ei pysty lukemaan niitä.</li>
-        <li><b>Google</b>: sähköpostimme (Gmail) ja kirjautuminen Google-tilillä.</li>
+        <li><b>Amazon Web Services</b>: varmuuskopiot ja Siiklin lähettämät sähköpostit, kuten kirjautumiskoodit, vahvistuslinkit ja kutsut, Tukholmassa, Ruotsissa. Varmuuskopiot salataan jo palvelimella, ja purkuavain on vain meillä, joten AWS ei pysty lukemaan niitä.</li>
+        <li><b>Google</b>: sähköpostimme (Gmail), myös ylläpitäjän kirjautumisilmoitukset, ja kirjautuminen Google-tilillä.</li>
         <li><b>GitHub</b>: verkkosivu siikli.fi.</li>
         <li><b>Visma</b>: vain jos asiakas käyttää Fivaldi-lisäosaa. Silloin laskut siirtyvät asiakkaan omaan Fivaldiin, ja niihin sovelletaan asiakkaan ja Visman välistä sopimusta.</li>
       </ul>
@@ -97,8 +99,10 @@
       <ul>
         <li><b>Käyttäjän tiedot</b>: niin kauan kuin käyttäjä on Siiklissä. Ne poistuvat, kun pääkäyttäjä poistaa käyttäjän tai kun asiakkuus päättyy.</li>
         <li><b>Lokit</b>: 90 päivää.</li>
+        <li><b>Kirjautumisilmoitukset</b>: niin kauan kuin tietoturvan valvonta ja tuki niitä vaativat.</li>
         <li><b>Varmuuskopiot</b>: tunnin välein otetut 7 päivää, päivittäiset 90 päivää ja kuukausittaiset 2 vuotta. Varmuuskopioita ei voi poistaa ennen aikojaan, emme mekään, joten poistettu tieto häviää varmuuskopioista viimeistään kahden vuoden kuluttua. Varmuuskopioita käytetään vain tietojen palauttamiseen.</li>
         <li><b>Asiakkuuden päätyttyä</b> toimitamme asiakkaalle sen tiedot ja poistamme ne palvelimelta 30 päivän kuluessa.</li>
+        <li><b>Kokeilun päätyttyä</b>, jos jatkosta ei ole sovittu, yrityksen tiedot voidaan poistaa, kun päättymisestä on kulunut kuukausi.</li>
         <li><b>Yhteydenotot</b>: niin kauan kuin asian hoitaminen vaatii. Poistamme ne pyynnöstä.</li>
         <li><b>Laskutus- ja kirjanpitotiedot</b>: kirjanpitolain vaatiman ajan.</li>
       </ul>
@@ -107,8 +111,8 @@
       <ul>
         <li>Kaikki yhteydet Siikliin ovat salattuja (HTTPS).</li>
         <li>Sovellus avautuu vain Suomesta, ja palvelimen ylläpitoon pääsee vain ylläpitäjän omasta osoitteesta.</li>
-        <li>Salasanoista tallennetaan vain tiiviste, ja epäonnistuneiden kirjautumisten määrää rajoitetaan.</li>
-        <li>Palvelin tarkistaa jokaisessa pyynnössä, että käyttäjän rooli sallii sen.</li>
+        <li>Salasanoista ja kirjautumiskoodeista tallennetaan vain tiiviste. Kirjautumiskoodi on voimassa 10 minuuttia, ja epäonnistuneiden kirjautumisten määrää rajoitetaan.</li>
+        <li>Yritysten tiedot on erotettu toisistaan: palvelin tarkistaa jokaisessa pyynnössä, että tieto kuuluu käyttäjän omalle yritykselle ja että käyttäjän rooli sallii pyynnön.</li>
         <li>Tiedot varmuuskopioidaan salattuina tunnin välein.</li>
         <li>Tietoturvapäivitykset asennetaan automaattisesti, ja Siikli tarkistetaan tietoturva-aukkojen varalta joka päivä.</li>
       </ul>
@@ -133,7 +137,7 @@
 
   <footer>
     <div class="footer-main">
-      <p class="footer-logo"><img src="../images/logo.png" alt="" width="32" height="32">Siikli</p>
+      <p class="footer-logo"><img src="../images/logo.png" alt="" width="32" height="32">Siikli <span class="footer-tagline">– tehty maalaisjärjellä</span></p>
       <p class="footer-links">
         <a href="https://app.siikli.fi/" title="Siiklin käyttäjille. Avautuu vain Suomesta.">Kirjaudu</a>
         <a href="./" aria-current="page">Tietosuojaseloste</a>

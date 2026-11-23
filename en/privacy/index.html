@@ -11,7 +11,7 @@
   <link rel="alternate" hreflang="x-default" href="https://siikli.fi/tietosuoja/">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/png" href="../../images/logo.png">
-  <link rel="stylesheet" href="../../style.css?v=2">
+  <link rel="stylesheet" href="../../style.css?v=3">
 </head>
 <body>
   <header class="topbar">
@@ -25,14 +25,14 @@
 
   <main class="legal">
     <h1>Privacy policy</h1>
-    <p class="updated">Last updated <time datetime="2026-11-20">20 November 2026</time></p>
+    <p class="updated">Last updated <time datetime="2026-11-23">23 November 2026</time></p>
 
     <div class="summary">
       <h2>In short</h2>
       <ul class="checks">
         <li>We handle only the data that signing in, using Siikli and being a customer require.</li>
         <li>We don't sell data or use it for advertising.</li>
-        <li>From Google sign-in, Siikli gets only your email address and basic profile, with no access to anything else in your Google account.</li>
+        <li>From Google sign-in, Siikli uses only your email address, with no access to anything else in your Google account.</li>
         <li>The app's data and backups are in the EU, and backups are encrypted before they leave the server.</li>
         <li>The website siikli.fi uses no cookies and no analytics.</li>
       </ul>
@@ -52,18 +52,19 @@
       </ul>
 
       <h2 id="users">3. The app's users</h2>
-      <p>A customer company's administrator adds the company's users to Siikli. For each user, Siikli stores:</p>
+      <p>When a company signs up for Siikli, we store the company's name, the email address of the person who signed up, and when and which version of the terms of service they accepted. The person who signs up becomes the company's administrator, and the administrator adds the company's other users. For each user, Siikli stores:</p>
       <ul>
-        <li>a username and a role, such as office or warehouse</li>
-        <li>a hash of the password, if the user signs in with a password. We never store or see the password itself.</li>
-        <li>an email address and a Google account ID, if the user signs in with Google (section 4).</li>
+        <li>a username, usually an email address, and a role, such as office or warehouse</li>
+        <li>a hash of the password, if the user has one. We never store or see the password itself.</li>
+        <li>a hash of the sign-in code, when the user signs in with a code sent by email.</li>
       </ul>
       <p>We use this data to sign users in and to check what each user may see and do. The legal basis is our legitimate interest in providing the service to the customer company and its users under our agreement.</p>
       <p>For every request, the server logs the time, the IP address, the address requested and the response status. We use the logs to find faults and to monitor security, and they are deleted after 90 days. The legal basis is our legitimate interest in a working and secure service.</p>
+      <p>For every successful sign-in and every new company, the administrator gets a notice by email. It has the user, the role, the company, how the user signed in, the time, the IP address and the browser. We use these notices to spot misuse and to help new customers get started. The legal basis is our legitimate interest in a secure service and in support.</p>
 
       <h2 id="google">4. Signing in with Google</h2>
       <p>When you sign in with Google, Google gives Siikli your email address, your Google account ID and your basic profile (your name and profile picture). Siikli does not ask for access to your Gmail, Drive, calendar, contacts or any other data in your Google account.</p>
-      <p>We use this data only to sign you in: we check that the email address belongs to a user your company has added to Siikli, and then sign you in. We store only the email address and the Google account ID with your user. They are deleted when your user is deleted.</p>
+      <p>Of this, we use only the email address that Google has verified, and only to sign you up and sign you in. When you sign in, we check that the address is a Siikli user's username, and then sign you in. When you sign up with Google, the address becomes the administrator's username. We store nothing else received from Google. The address is deleted when your user is deleted.</p>
       <p>We don't sell data received from Google, share it with anyone, or use it for advertising or to train AI models.</p>
       <p>Siikli's use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
       <p>Google handles the sign-in as a controller in its own right, under the <a href="https://policies.google.com/privacy?hl=en">Google Privacy Policy</a>.</p>
@@ -80,13 +81,14 @@
       <h2 id="cookies">7. The website and cookies</h2>
       <p>siikli.fi sets no cookies and uses no analytics, ad tracking or scripts from other services. Even its fonts are served from siikli.fi itself. The site is hosted on GitHub Pages, which logs visitors' IP addresses for security under the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
       <p>The Siikli app uses two strictly necessary cookies: a sign-in cookie that keeps you signed in, and a security cookie that blocks requests sent from other sites. Siikli has no tracking or advertising cookies.</p>
+      <p>The sign-in and sign-up pages load the Sign in with Google button from Google, so Google learns that the page was opened, for example from the IP address.</p>
 
       <h2 id="recipients">8. Who handles the data</h2>
       <p>We don't sell data or share it for marketing. We use these service providers:</p>
       <ul>
         <li><b>DigitalOcean</b>: Siikli's server, in Amsterdam, the Netherlands.</li>
-        <li><b>Amazon Web Services</b>: backups, in Stockholm, Sweden. They are encrypted on the server first, and only we hold the key, so AWS cannot read them.</li>
-        <li><b>Google</b>: our email (Gmail), and sign-in with Google.</li>
+        <li><b>Amazon Web Services</b>: backups, and the emails Siikli sends, such as sign-in codes, confirmation links and invitations, in Stockholm, Sweden. Backups are encrypted on the server first, and only we hold the key, so AWS cannot read them.</li>
+        <li><b>Google</b>: our email (Gmail), including the administrator's sign-in notices, and sign-in with Google.</li>
         <li><b>GitHub</b>: the website siikli.fi.</li>
         <li><b>Visma</b>: only if the customer uses the Fivaldi add-on. Invoices then go to the customer's own Fivaldi, under the customer's agreement with Visma.</li>
       </ul>
@@ -97,8 +99,10 @@
       <ul>
         <li><b>User data</b>: as long as the user exists in Siikli. It is deleted when an administrator deletes the user or when the customer leaves.</li>
         <li><b>Logs</b>: 90 days.</li>
+        <li><b>Sign-in notices</b>: as long as security monitoring and support need them.</li>
         <li><b>Backups</b>: hourly backups for 7 days, daily for 90 days and monthly for 2 years. No one can delete a backup early, not even us, so deleted data disappears from the backups within two years at most. Backups are used only to restore data.</li>
         <li><b>When a customer leaves</b>, we hand over its data and delete it from the server within 30 days.</li>
+        <li><b>When a trial ends</b> without the company continuing, its data may be deleted a month after the trial's end.</li>
         <li><b>Contacts</b>: as long as the matter needs. We delete them on request.</li>
         <li><b>Invoicing and accounting records</b>: as long as the Finnish Accounting Act requires.</li>
       </ul>
@@ -107,8 +111,8 @@
       <ul>
         <li>All connections to Siikli are encrypted (HTTPS).</li>
         <li>The app opens only from Finland, and the server can be administered only from the administrator's own address.</li>
-        <li>Only a hash of each password is stored, and failed sign-in attempts are limited.</li>
-        <li>On every request, the server checks that the user's role allows it.</li>
+        <li>Only a hash of each password and sign-in code is stored. A sign-in code is valid for 10 minutes, and failed sign-in attempts are limited.</li>
+        <li>Each company's data is kept apart: on every request, the server checks that the data belongs to the user's own company and that the user's role allows the request.</li>
         <li>Data is backed up, encrypted, every hour.</li>
         <li>Security updates are installed automatically, and Siikli is checked for security holes every day.</li>
       </ul>
@@ -134,7 +138,7 @@
 
   <footer>
     <div class="footer-main">
-      <p class="footer-logo"><img src="../../images/logo.png" alt="" width="32" height="32">Siikli</p>
+      <p class="footer-logo"><img src="../../images/logo.png" alt="" width="32" height="32">Siikli <span class="footer-tagline">– built on common sense</span></p>
       <p class="footer-links">
         <a href="https://app.siikli.fi/" title="For Siikli's users. Opens only from Finland.">Log in</a>
         <a href="./" aria-current="page">Privacy policy</a>
